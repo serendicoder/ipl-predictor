@@ -11,7 +11,7 @@ layout: default
 # Methods
 
 
-# Potential Results/Discusion
+# Potential Results/Discussion
 
 
 # References
