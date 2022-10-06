@@ -12,33 +12,36 @@ Barot et al [[3]](https://docs.google.com/document/d/1zeap_CFpMrEivmf6gWQdVIxaBZ
 
 # Problem Definition
 
-There are two main goals of this project- <br/>
-*  The primary objective of IPL teams is to qualify from the group stage to the playoffs which is also their indicator of success. Our project will predict the likelihood of IPL teams advancing to the playoffs. For this, we propose to train a supervised learning model with the most discriminative features extracted from the dataset.
-*  Based on their past performances, each player in IPL is offered a contract from one of these categories- Grade-A+, Grade-A, Grade-B, Grade-C, and Non-Contracted. Our goal is to group the players in various contract categories using an unsupervised clustering algorithm. This analysis is useful for IPL team owners because a player's contract directly influences their bidding amount in player auctions.
+The goals of this project are two-fold:<br/>
+* Firstly, we propose to **predict the likelihood of teams qualifying for the IPL playoffs**. We plan to train a supervised learning model, with the most discriminative features extracted from the dataset, to predict chances of each team advancing to the IPL playoffs. 
+* Secondly, we propose to **group players in various contract categories based on their performance**. There are five possible player contract categories (Grade-A+, Grade-A, Grade-B, Grade-C, Non-Contracted), which directly influences the players bidding amount.  We propose to use an unsupervised clustering algorithm to tackle this problem.
+
 
 
 
 # Methods
 
 ### Pre-Processing
-1. Independent Features: We will calculate the covariance matrix to check if all features present in the dataset are independent. A low value of inter-feature correlation will indicate this.    
-2. Noise Detection: We propose to use the DBSCAN algorithm to detect and remove possible outliers present in the dataset.
-3. Dimensionality Reduction: We propose to use Principal Component Analysis to remove any unwanted features.
+1. **Independent Features:** We will calculate the covariance matrix to check if all features present in the dataset are independent. A low value of inter-feature correlation will indicate this. 
+2. **Noise Detection:** We propose to use the DBSCAN algorithm to detect and remove possible outliers present in the dataset.
+3. **Dimensionality Reduction:** We intend to use Principal Component Analysis to remove any unwanted features.
  
 ### Supervised Learning Task
-1. 
-2. 
+1. To predict the likelihood of each team qualifying for the playoffs, we will use some of the popular linear classifiers such as Decision Trees, K-Neighbors classification, Naive-Bayes Classifier, etc.
 
 ### Unsupervised Learning Task
-1. We can use K-means/GMM to cluster players based on performance to try to predict which category of contract they would be offered.
+1. We plan to use K-means/GMM/DBScan to cluster players based on performance for predicting the contract category that is likely to be offered to them. 
 
 
 
 # Potential Results
 
-We intend to accurately predict which team would advance in the IPL playoffs and perform quality clustering to group players in contract categories. To do so, we will evaluate the ML models proposed above and compare their performance based on the following evaluation metrics:
-*  For the supervised learning task, we would evaluate the team performance predictions, in order to determine which model works the best for our data. We plan to score the models on the following metrics: Accuracy, Precision, Recall, AUC.    
-*  For the unsupervised learning task, we plan to use Silhouette Coefficient and Davies-Bouldin Index to evaluate the performance of the clustering.
+We intend to accurately predict which team would advance in the IPL playoffs and perform quality clustering to group players in contract categories. To achieve this, we will pre-process the data, perform a detailed qualitative and quantitative comparison of the proposed models, based on the following metrics:
+
+* For the supervised learning task, we would evaluate the team performance predictions, in order to determine which model works the best for our data. We plan to score the models on the following metrics: Accuracy, Precision, Recall, ROC AUC.    
+ 
+* For the unsupervised learning task, we plan to use Silhouette Coefficient and Davies-Bouldin Index to evaluate the performance of the clustering.
+
 
 
 
