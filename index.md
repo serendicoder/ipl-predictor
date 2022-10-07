@@ -64,6 +64,14 @@ We intend to accurately predict which team would advance in the IPL playoffs and
 
 # Contribution
 
+| Team Member | Overall Contribution                                                                                                                                                                                                 |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Anam Ahmad  | <ul> <li>Data cleaning, feature selection and model evaluation for the Decision Tree Classifier</li><li>Contribute to corresponding report sections</li> <li> Contribute information about the Decision Tree Classifier in the model comparisons </li></ul>|
+| Amola Singh |  <ul> <li>Data cleaning and integration from primary datasets</li><li> Dimensionality reduction using PCA</li><li> Evaluate KNN model and contribute to report</li><li> Contribute to model analysis and comparison through cross-validation</li></ul>              |
+|             |                                                                                                                                                                                                                      |
+|              |                                                          |
+|               |                                                          |
+
 # Video Presentation
 
 [Proposal Video](https://tinyurl.com/7641group2proposal)
