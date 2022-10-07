@@ -27,10 +27,10 @@ The goals of this project are two-fold:<br/>
 3. **Dimensionality Reduction:** We intend to use Principal Component Analysis to remove any unwanted features.
  
 ### Supervised Learning Task
-1. To predict the likelihood of each team qualifying for the playoffs, we will use some of the popular linear classifiers such as Decision Trees, K-Neighbors classification, Naive-Bayes Classifier, etc.
+To predict the likelihood of each team qualifying for the playoffs, we will use some of the popular linear classifiers such as Decision Trees, K-Neighbors classification, Naive-Bayes Classifier, etc.
 
 ### Unsupervised Learning Task
-1. We plan to use K-means/GMM/DBScan to cluster players based on performance for predicting the contract category that is likely to be offered to them. 
+We plan to use K-means/GMM/DBScan to cluster players based on performance for predicting the contract category that is likely to be offered to them. 
 
 
 
