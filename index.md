@@ -4,9 +4,9 @@ layout: default
 
 # Introduction
 
-Cricket is the most popular sport in the Indian subcontinent and the annual Indian Premier League (IPL) is one of its key events. Sports analysis remains a lucrative domain for professionals and hobbyists alike, evident in studies employing various ML methods across many sports tournaments with similar formats [[1]](https://docs.google.com/document/d/1zeap_CFpMrEivmf6gWQdVIxaBZ4qH-YPk99rw5QgvQ4/edit#heading=h.2tbvvj4y8gyy) [[2]](https://docs.google.com/document/d/1zeap_CFpMrEivmf6gWQdVIxaBZ4qH-YPk99rw5QgvQ4/edit#heading=h.yn323m7uyovb).
+Cricket is the most popular sport in the Indian subcontinent and the annual Indian Premier League (IPL) is one of its key events. Sports analysis remains a lucrative domain for professionals and hobbyists alike, evident in studies employing various ML methods across many sports tournaments with similar formats \[1\], \[2\].
 
-Barot et al [[3]](https://docs.google.com/document/d/1zeap_CFpMrEivmf6gWQdVIxaBZ4qH-YPk99rw5QgvQ4/edit#heading=h.4u6il7p52boz) analyze 4 years of IPL data to create a model that can predict the outcome of matches. The features extracted are team performance, location (home/away) and other external factors affecting a match. Another study [[1]](https://docs.google.com/document/d/1zeap_CFpMrEivmf6gWQdVIxaBZ4qH-YPk99rw5QgvQ4/edit#heading=h.2tbvvj4y8gyy) performs a binary classification to predict whether a team will make the NBA playoffs based on the performance in the regular season, using 25 years of match statistics. We aim to use two Kaggle IPL datasets [[4]](https://www.kaggle.com/datasets/manasgarg/ipl), [[5]](https://www.kaggle.com/datasets/vora1011/ipl-2008-to-2021-all-match-dataset), consisting of overall match statistics like the toss information, location, teams competing as well as ball-by-ball runs, wickets, batsman, bowler and commentary for similar prediction tasks.
+Barot et al \[3\] analyze 4 years of IPL data to create a model that can predict the outcome of matches. The features extracted are team performance, location (home/away) and other external factors affecting a match. Another study \[1\] performs a binary classification to predict whether a team will make the NBA playoffs based on the performance in the regular season, using 25 years of match statistics. We aim to use two Kaggle IPL datasets [[4]](https://www.kaggle.com/datasets/manasgarg/ipl), [[5]](https://www.kaggle.com/datasets/vora1011/ipl-2008-to-2021-all-match-dataset), consisting of overall match statistics like the toss information, location, teams competing as well as ball-by-ball runs, wickets, batsman, bowler and commentary for similar prediction tasks.
 
 
 
@@ -59,8 +59,12 @@ We intend to accurately predict which team would advance in the IPL playoffs and
 
 # Timeline
 
-
+[Proposal Gantt Chart](https://gtvault-my.sharepoint.com/:x:/g/personal/aahmad76_gatech_edu/EfJHL54BzxdHmGAvUFpSutEBRh1W31hwYXEF7K1zWbO71g?e=bq55hx)
 
 
 # Contribution
+
+# Video Presentation
+
+[Proposal Video](https://tinyurl.com/7641group2proposal)
 
