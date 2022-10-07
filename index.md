@@ -65,12 +65,12 @@ We intend to accurately predict which team would advance in the IPL playoffs and
 # Contribution
 
 | Team Member | Overall Contribution                                                                                                                                                                                                 |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Anam Ahmad  | • Data cleaning, feature selection and model evaluation for the Decision Tree Classifier <br> • Contribute to corresponding report sections <br> • Contribute information about the Decision Tree Classifier in the model comparisons |
 | Amola Singh | • Data cleaning and integration from primary datasets <br> • Dimensionality reduction using PCA <br> • Evaluate KNN model and contribute to report <br> • Contribute to model analysis and comparison through cross-validation|
-|             |                                                                                                                                                                                                                      |
-|              |                                                          |
-|               |                                                          |
+| Rohith Sudheer| • Data cleaning and feature selection <br>  • Evaluate Naive Bayes model and contribute to the corresponding report section <br> • Compare Naive Bayes model with the other classification models|                                                                             
+| Bodhisatwa Chatterjee| • Data cleaning, visualization and feature selection to implement K-Means clustering algorithm <br> • Perform model evaluation and comparisons with other clustering algorithms <br> • Contribute to corresponding report sections|
+| Vidhi Talera |  • Data cleaning, visualization and feature selection to implement DBSCAN clustering algorithm <br> • Perform model evaluation and comparisons with other clustering algorithms <br>  • Contribute to corresponding report sections|
 
 # Video Presentation
 
