@@ -99,10 +99,8 @@ Since the features do not have continuous numerical values, the chi-square analy
 Based on this analysis, the features dropped were ‘WonBy’ and ‘TossDecision’. As described in the data collection section, since ‘Margin’ depends on ‘WonBy’, it was also dropped. P-value plots from some seasons:
 
 
-![](./assets/Picture3.png)
-![](./assets/Picture4.png)
-![](./assets/Picture5.png)
-![](./assets/Picture6.png)
+![](./assets/Picture3.png) ![](./assets/Picture4.png)
+![](./assets/Picture5.png) ![](./assets/Picture6.png)
 
 The correlation matrix after cleaning and dimensionality reduction isn’t exactly ideal. We will attempt PCA with modifications for discrete values or backward feature selection for another dimensionality reduction strategy.
 
