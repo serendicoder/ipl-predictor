@@ -65,7 +65,7 @@ Over the last 15 seasons of the IPL, if a team was renamed, we have chosen the l
 
 ![](./assets/Picture2.png)
 
-Image Source: Wikipedia https://en.wikipedia.org/wiki/Indian_Premier_League#Teams 
+Image Source: [Wikipedia](https://en.wikipedia.org/wiki/Indian_Premier_League#Teams)
 
 - Delhi Daredevils renamed to Delhi Capitals across all seasons
 - Kings Xi Punjab renamed to Punjab Kings across all seasons
