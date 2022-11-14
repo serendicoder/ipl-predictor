@@ -164,8 +164,8 @@ We plan to use K-means/GMM/DBScan to cluster players based on performance for pr
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Anam Ahmad  | • Additional data sourcing: player ratings <br> • Data cleaning, feature selection and corresponding report sections <br> • Preliminary classifier evaluation for further feature transformation |
 | Amola Singh | • Additional data sourcing: player ratings <br> • Data cleaning and updating Github page <br> • Evaluate preliminary classifier on various metrics |
-| Rohith Sudheer| • Additional data sourcing: player ratings <br>  •  <br> • |                                                                             
-| Bodhisatwa Chatterjee| •Additional data sourcing: player ratings <br> •  <br> • |
+| Rohith Sudheer| • Additional data sourcing: player ratings <br>  • Data cleaning and filling missing data |                                                                             
+| Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  <br> • |
 | Vidhi Talera |  • Additional data sourcing: player ratings <br> • Forward and backward feature selection <br>  • Contribute to corresponding report sections|
 
 # Video Presentation
