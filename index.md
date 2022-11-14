@@ -53,6 +53,7 @@ In addition to the features available from the Kaggle dataset, we construct 2 ne
 
 More specifically, all unique player names are extracted from the primary dataset, and the latest T20 rating is then used if available. The ICC may not provide a rating for players who have played very few international matches, or if some prolific senior players only played the first couple of IPL seasons when the T20 format was fairly new. 
 
+For the unsupervised task the data was sourced from [Kaggle ipl auction dataset](https://www.kaggle.com/datasets/nkitgupta/ipl-auction-and-ipl-dataset) and another [github dataset source](https://github.com/reddyprasade/DataSet-for-ML-and-Data-Science/tree/master/DataSets) used which joins the original data in the form which has following columns: name of player, age, country, team, playing role, total runs, total wickets taken, auction year, base price and sold price etc. 
 
 
 # Methods for Data Pre-processing
@@ -90,6 +91,17 @@ The names of the playing squads of both teams did not seem intuitively useful by
 - Binarize Labels
 
 Since ‘WinningTeam’ is either Team1’s name or Team2’s name, after converting to categorical data, the values are in the range 0-14. To binarize, the value of the label ‘WinningTeam’ is converted to 0 if it is equal to Team1’s value or 1 if it is equal to Team2’s value. This makes the classification task simpler.
+
+- Few points to note about the unsupervised clustering task dataset
+    - None of the columns have null values
+    - Few columns like PLAYER NAME, TEAM, AUCTION YEAR, COUNTRY are not the predictor for the contract grade of player
+    - We would be defining the grade of contract depending on the sold price.
+    - We would split PLAYING ROLE in one hot encoded variables as it is non-ordinal categorical variable. 
+    - We are splitting contracts in three grades here depending on the sold price:
+        A : 1250000 and above
+        B : 500000 - 1250000
+        C : 500000 and less
+
 
 ### Dimensionality Reduction
 
@@ -166,7 +178,7 @@ We plan to use K-means/GMM/DBScan to cluster players based on performance for pr
 | Amola Singh | • Additional data sourcing: player ratings <br> • Data cleaning, team data preprocessing, and updating Github page <br> • Evaluate preliminary classifier using various metrics |
 | Rohith Sudheer| • Additional data sourcing: player ratings <br>  • Data cleaning and filling missing data. Generating playoff labels <br>  • Preliminary feature reduction |                                                                             
 | Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  Training different classifier models - coding and implementation |
-| Vidhi Talera |  • Additional data sourcing: player ratings, grades of each player for clustering task <br> • Feature reduction using forward and backward feature selection <br>  • Evaluate preliminary classifiers on various metrics|
+| Vidhi Talera |  • Additional data sourcing: player ratings, player grades <br> • Feature reduction using forward and backward feature selection <br>  • Evaluate preliminary classifiers on various metrics <br> • Updating report sections and github page |
 
 # Video Presentation
 
