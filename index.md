@@ -59,7 +59,7 @@ More specifically, all unique player names are extracted from the primary datase
 
 ### Data cleaning
 
-1. Team Name Changes
+- Team Name Changes
 
 Over the last 15 seasons of the IPL, if a team was renamed, we have chosen the latest team name throughout all seasons to preserve the history of stats.
 
@@ -73,21 +73,21 @@ Image Source: [Wikipedia](https://en.wikipedia.org/wiki/Indian_Premier_League#Te
 
 Additionally, typos in team names were fixed to keep names consistent.
 
-2. Categorical Values 
+- Categorical Values 
 
 Wherever possible, string values have been encoded into categorical values. This is useful when we use the chi-square test for feature selection. For example, there are 11 total cities where all the IPL matches have ever been played. The feature values for ‘City’ i.e. ‘Bangalore’, ‘Chennai’, ‘Delhi’ etc. are encoded as 0, 1, .. ,10
 
-3. Missing Values 
+- Missing Values 
 
-- Missing ‘City’ values were populated based on the ‘Venue’ values. For example, the Venue Sharjah Cricket Stadium’ is in City ‘Sharjah’.
-- Missing ‘Rating’ values for players were imputed using the average player rating across all players to minimize bias
-- Rows corresponding to incomplete/cancelled matches were dropped to remove complexity
+    - Missing ‘City’ values were populated based on the ‘Venue’ values. For example, the Venue Sharjah Cricket Stadium’ is in City ‘Sharjah’.
+    - Missing ‘Rating’ values for players were imputed using the average player rating across all players to minimize bias
+    - Rows corresponding to incomplete/cancelled matches were dropped to remove complexity
 
-4. Extra Features 
+- Extra Features 
 
 The names of the playing squads of both teams did not seem intuitively useful by themselves. Mean ratings of the playing 11 for both teams i.e. ‘Team1Mean’ and ‘Team2Mean’ are added to the dataset
 
-5. Binarize Labels
+- Binarize Labels
 
 Since ‘WinningTeam’ is either Team1’s name or Team2’s name, after converting to categorical data, the values are in the range 0-14. To binarize, the value of the label ‘WinningTeam’ is converted to 0 if it is equal to Team1’s value or 1 if it is equal to Team2’s value. This makes the classification task simpler.
 
