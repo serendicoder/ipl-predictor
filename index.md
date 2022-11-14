@@ -119,7 +119,7 @@ After feature reduction, the included ones are: `{'Team2', 'MatchNumber','SuperO
 
 ### Supervised Learning Task
 The strategy employed for training classifiers is as follows:
-1. Use training data from seasons 2008-2021 for training and 2022 for testing
+1. Use training data from seasons 2008-2021 for training (70 train - 30 validation) and 2022 for testing
 2. Train a list of classifiers, and predict the outcome of each match in the 2022 season
 3. Based on the results, rank each team in based on the match outcomes 
 4. Observe if the top 4 ranked teams are the ones who made it into the playoffs 
@@ -163,10 +163,10 @@ We plan to use K-means/GMM/DBScan to cluster players based on performance for pr
 | Team Member | Overall Contribution                                                                                                                                                                                                 |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Anam Ahmad  | • Additional data sourcing: player ratings <br> • Data cleaning, feature selection and corresponding report sections <br> • Preliminary classifier evaluation for further feature transformation |
-| Amola Singh | • Additional data sourcing: player ratings <br> • Data cleaning and updating Github page <br> • Evaluate preliminary classifier on various metrics |
-| Rohith Sudheer| • Additional data sourcing: player ratings <br>  • Data cleaning and filling missing data |                                                                             
-| Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  <br> • |
-| Vidhi Talera |  • Additional data sourcing: player ratings <br> • Forward and backward feature selection <br>  • Contribute to corresponding report sections|
+| Amola Singh | • Additional data sourcing: player ratings <br> • Data cleaning, team data preprocessing, and updating Github page <br> • Evaluate preliminary classifier using various metrics |
+| Rohith Sudheer| • Additional data sourcing: player ratings <br>  • Data cleaning and filling missing data. Generating playoff labels <br>  • Preliminary feature reduction |                                                                             
+| Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  Training different classifier models - coding and implementation |
+| Vidhi Talera |  • Additional data sourcing: player ratings, grades of each player for clustering task <br> • Feature reduction using forward and backward feature selection <br>  • Evaluate preliminary classifiers on various metrics|
 
 # Video Presentation
 
