@@ -46,8 +46,8 @@ Here is a description of the features and their relevance. The focus of this des
 
 
 In addition to the features available from the Kaggle dataset, we construct 2 new features:
-1. Team1Mean: Mean ‘Rating’ of the players in the ‘Team1Players’ feature value for this match
-2. Team2Mean: Mean ‘Rating’ of the players in the ‘Team1Players’ feature value for this match
+1. `Team1Mean`: Mean ‘Rating’ of the players in the ‘Team1Players’ feature value for this match
+2. `Team2Mean`: Mean ‘Rating’ of the players in the ‘Team2Players’ feature value for this match
 
 ‘Rating’ here is sourced from [ICC Cricket data](https://www.icc-cricket.com/rankings/mens/player-rankings/t20i). We choose the T20I rating since the IPL is a T20 format tournament (20 overs in a match). 
 
