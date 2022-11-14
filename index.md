@@ -79,7 +79,7 @@ Wherever possible, string values have been encoded into categorical values. This
 
 - Missing Values 
 
-    - Missing ‘City’ values were populated based on the ‘Venue’ values. For example, the Venue Sharjah Cricket Stadium’ is in City ‘Sharjah’.
+    - Missing ‘City’ values were populated based on the ‘Venue’ values. For example, the Venue 'Sharjah Cricket' Stadium is in City ‘Sharjah’.
     - Missing ‘Rating’ values for players were imputed using the average player rating across all players to minimize bias
     - Rows corresponding to incomplete/cancelled matches were dropped to remove complexity
 
@@ -106,6 +106,16 @@ The correlation matrix after cleaning and dimensionality reduction isn’t exact
 
 ![](./assets/Picture7.png)
 
+### Forward and Backward Feature Selection
+
+We performed forward selection and backward elimination techniques on the dataset using p-values from OLS regression model and got the following results:
+forward_selection_results:  `{'Team2', 'MatchNumber', 'Margin', 'Venue', 'Team1', 'City', 'WinningTeam', 'TossWinner', 'WonBy', 'TossDecision'}`
+backward_elimination_results:  `{'MatchNumber', 'Margin', 'Team1', 'City', 'WinningTeam', 'SuperOver', 'TossWinner', 'Team2', 'TossDecision'}`
+ 
+Both the techniques resulted in similar features to be selected except two, which are `Venue` and `SuperOver`. Intuitively, we shouldn’t be considering `WonBy`, `WinningTeam`, and `Margin` as input features, so removing them from the list of features. 
+ 
+After feature reduction, the included ones are: `{'Team2', 'MatchNumber','SuperOver', 'Venue', 'Team1', 'City', 'TossWinner', 'TossDecision'}`
+
 
 ### Supervised Learning Task
 The strategy employed for training classifiers is as follows:
@@ -118,7 +128,13 @@ Since the success of the classifiers cannot be mapped directly to the strategy o
 
 # Results
 ### Supervised Learning Task
-
+We trained 6 different supervised models, decision tree, Naive Bayes, SVM, LDA, KNN, and Logistic Regression and predicted the labels for the test data.
+ 
+Before label binarizing, the highest accuracy we were able to achieve was 41% for decision trees.
+ 
+After label binarizing, we were able to achieve significantly higher accuracy for Decision trees, Naive Bayes, LDA, and Logistic regression, with Logistic regression having the highest accuracy of 69.3%, closely followed by LDA with an accuracy of 68.5%.
+ 
+We also measured the precision and recall of each model.
 
 
 ### Unsupervised Learning Task
@@ -146,11 +162,11 @@ We plan to use K-means/GMM/DBScan to cluster players based on performance for pr
 
 | Team Member | Overall Contribution                                                                                                                                                                                                 |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Anam Ahmad  | • Data cleaning, feature selection and model evaluation for the Decision Tree Classifier <br> • Contribute to corresponding report sections <br> • Contribute information about the Decision Tree Classifier in the model comparisons |
-| Amola Singh | • Data cleaning and integration from primary datasets <br> • Dimensionality reduction using PCA <br> • Evaluate KNN model and contribute to report <br> • Contribute to model analysis and comparison through cross-validation|
-| Rohith Sudheer| • Data cleaning and feature selection <br>  • Evaluate Naive Bayes model and contribute to the corresponding report section <br> • Compare Naive Bayes model with the other classification models|                                                                             
-| Bodhisatwa Chatterjee| • Data cleaning, visualization and feature selection to implement K-Means clustering algorithm <br> • Perform model evaluation and comparisons with other clustering algorithms <br> • Contribute to corresponding report sections|
-| Vidhi Talera |  • Data cleaning, visualization and feature selection to implement DBSCAN clustering algorithm <br> • Perform model evaluation and comparisons with other clustering algorithms <br>  • Contribute to corresponding report sections|
+| Anam Ahmad  | • Additional data sourcing: player ratings <br> • Data cleaning, feature selection and corresponding report sections <br> • Preliminary classifier evaluation for further feature transformation |
+| Amola Singh | • Additional data sourcing: player ratings <br> • Data cleaning and updating Github page <br> • Evaluate preliminary classifier on various metrics |
+| Rohith Sudheer| • Additional data sourcing: player ratings <br>  •  <br> • |                                                                             
+| Bodhisatwa Chatterjee| •Additional data sourcing: player ratings <br> •  <br> • |
+| Vidhi Talera |  • Additional data sourcing: player ratings <br> • Forward and backward feature selection <br>  • Contribute to corresponding report sections|
 
 # Video Presentation
 
