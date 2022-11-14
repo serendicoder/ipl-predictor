@@ -19,7 +19,7 @@ The goals of this project are two-fold:<br/>
 
 # Data Collection
 
-The data was sourced from: </br>
+The data was sourced from: 
 [Kaggle dataset for IPL from 2008-2022](https://www.kaggle.com/datasets/vora1011/ipl-2008-to-2021-all-match-dataset)
 This dataset provides the match data of every single match played in IPL so far, covering the years 2008-2022. The data consists of mostly string values - here is an example row:
 
@@ -44,14 +44,13 @@ Here is a description of the features and their relevance. The focus of this des
 14. `Team1Players`, `Team2Players`: The playing 11 squad in the match - a team typically consists of more than 11 players, so this value may differ for a team across matches
 15. `Umpire1`, `Umpire2`: The names of the Umpires for the match
 
-</br>
 
 In addition to the features available from the Kaggle dataset, we construct 2 new features:
 1. Team1Mean: Mean ‘Rating’ of the players in the ‘Team1Players’ feature value for this match
 2. Team2Mean: Mean ‘Rating’ of the players in the ‘Team1Players’ feature value for this match
 
 ‘Rating’ here is sourced from [ICC Cricket data](https://www.icc-cricket.com/rankings/mens/player-rankings/t20i). We choose the T20I rating since the IPL is a T20 format tournament (20 overs in a match). 
-</br>
+
 More specifically, all unique player names are extracted from the primary dataset, and the latest T20 rating is then used if available. The ICC may not provide a rating for players who have played very few international matches, or if some prolific senior players only played the first couple of IPL seasons when the T20 format was fairly new. 
 
 
@@ -60,12 +59,13 @@ More specifically, all unique player names are extracted from the primary datase
 
 ### Data cleaning
 
-1. Team Name Changes </br>
+1. Team Name Changes
+
 Over the last 15 seasons of the IPL, if a team was renamed, we have chosen the latest team name throughout all seasons to preserve the history of stats.
 
 ![](./assets/Picture2.png)
 
-Image Source: Wikipedia https://en.wikipedia.org/wiki/Indian_Premier_League#Teams </br>
+Image Source: Wikipedia https://en.wikipedia.org/wiki/Indian_Premier_League#Teams 
 
 - Delhi Daredevils renamed to Delhi Capitals across all seasons
 - Kings Xi Punjab renamed to Punjab Kings across all seasons
@@ -73,25 +73,28 @@ Image Source: Wikipedia https://en.wikipedia.org/wiki/Indian_Premier_League#Team
 
 Additionally, typos in team names were fixed to keep names consistent.
 
-2. Categorical Values </br>
+2. Categorical Values 
+
 Wherever possible, string values have been encoded into categorical values. This is useful when we use the chi-square test for feature selection. For example, there are 11 total cities where all the IPL matches have ever been played. The feature values for ‘City’ i.e. ‘Bangalore’, ‘Chennai’, ‘Delhi’ etc. are encoded as 0, 1, .. ,10
 
-3. Missing Values </br>
+3. Missing Values 
+
 - Missing ‘City’ values were populated based on the ‘Venue’ values. For example, the Venue Sharjah Cricket Stadium’ is in City ‘Sharjah’.
 - Missing ‘Rating’ values for players were imputed using the average player rating across all players to minimize bias
 - Rows corresponding to incomplete/cancelled matches were dropped to remove complexity
 
-4. Extra Features </br>
+4. Extra Features 
+
 The names of the playing squads of both teams did not seem intuitively useful by themselves. Mean ratings of the playing 11 for both teams i.e. ‘Team1Mean’ and ‘Team2Mean’ are added to the dataset
 
-5. Binarize Labels </br>
+5. Binarize Labels
+
 Since ‘WinningTeam’ is either Team1’s name or Team2’s name, after converting to categorical data, the values are in the range 0-14. To binarize, the value of the label ‘WinningTeam’ is converted to 0 if it is equal to Team1’s value or 1 if it is equal to Team2’s value. This makes the classification task simpler.
 
 ### Dimensionality Reduction
 
 Since the features do not have continuous numerical values, the chi-square analysis with p-values was used to select the best features instead of PCA. The p-values for each feature were plotted, and the features with the highest p-value were discarded. Traditionally, a threshold of p <= 0.05 is used in the chi-square analysis. It is statistically concluded that features with a p-value greater than 0.05 do not affect the target variable (label) and thus can be dropped. Since each season had a slightly varying list of features that could be dropped, only the ones common to all seasons were picked. This was because the intention was to train all seasons (except the latest one which is test data) together.
 
-</br>
 
 Based on this analysis, the features dropped were ‘WonBy’ and ‘TossDecision’. As described in the data collection section, since ‘Margin’ depends on ‘WonBy’, it was also dropped. P-value plots from some seasons:
 
@@ -112,7 +115,6 @@ The strategy employed for training classifiers is as follows:
 2. Train a list of classifiers, and predict the outcome of each match in the 2022 season
 3. Based on the results, rank each team in based on the match outcomes 
 4. Observe if the top 4 ranked teams are the ones who made it into the playoffs 
-</br>
 
 Since the success of the classifiers cannot be mapped directly to the strategy of getting the top-ranked teams, the ML metrics are measured one step earlier, i.e. whether the match outcomes were predicted correctly. This is the focus of the results and evaluation at this point.
 
