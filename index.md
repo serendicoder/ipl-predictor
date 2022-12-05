@@ -209,29 +209,41 @@ Based on the match predictions by Naive Bayes, the teams that make it to the pla
 
 For clustering, since we do not have the ground truth (labels), we cannot measure the efficiency of clustering. However, depending on the geometrical structure of clusters, we can define a few metrics to assess the clustering quality. We are using Davies-Bouldin index, Silhouette score/coefficient(SC), Calinski Harabasz(CH) Score to evaluate the performance of the different clustering algorithms.
 
-#### Evaluation of batsmen clustering 
+#### Evaluation of batsmen clustering
+
+![](./assets/ClusteringVisual.png)
+![](./assets/ClusteringVisualAgglomerative.png)
+![](./assets/ClusteringVisualDBSCAN.png)
+![](./assets/ClusteringVisualBirch.png)
 
 | Algorithm                     | Clusters | DB Index  | SC score | CH score  |
 |-------------------------------|----------|-----------|----------|-----------|
 | KMeans                        | 4        | 0.449464  | 0.787841 | 3128.7980 |
 | Agglomerative Clustering      | 5        | 0.457173  | 0.773726 | 2859.1770 |
 | DBSCAN                        | 7        | 1.036026  | 0.152591 | 38.5098   |
-| Birch.                        | 5        | 0.457173  | 0.773726 | 2859.1770 |
+| Birch                         | 5        | 0.457173  | 0.773726 | 2859.1770 |
 
 
 #### Evaluation of bowlers clustering 
+
+![](./assets/ClusteringVisualKMeansBowl.png)
+![](./assets/ClusteringVisualAgglomerativeBowl.png)
+![](./assets/ClusteringVisualDBSCANBowl.png)
+![](./assets/ClusteringVisualBirchBowl.png)
 
 | Algorithm                     | Clusters | DB Index  | SC score       | CH score  |
 |-------------------------------|----------|-----------|----------------|-----------|
 | KMeans                        | 4        | 0.442359  |   0.698910     | 2290.5074 |
 | Agglomerative Clustering      | 5        | 0.482044  |   0.662284     | 2357.9518 |
-| DBSCAN                        | 6        | 0.994321  |  \- 0.16371   | 22.7747   |
-| Birch.                        | 5        | 0.482044  |   0.662284     | 2357.9518 |
+| DBSCAN                        | 6        | 0.994321  |  \- 0.16371    | 22.7747   |
+| Birch                         | 5        | 0.482044  |   0.662284     | 2357.9518 |
 
 Davies Bouldin Index is a way to assess clustering performance. DB Index defines similarity as ratio of average dispersion of two clusters to the separation between their centroids. Two clusters having a very high similarity would have a very high dispersion and would be situated very closely. Such clusters ideally should have been merged. A good clustering would have the DB Index as low as possible. This implies a good clustering should have tight clusters with high distance between the centroids. Ideally the DB index should be close to 0.
 
 If we analyze the results -  KMeans, Agglomerative and Birch have almost the same DB Index while DBSCAN has significantly higher. This is due to the fact KMeans, Agglomerative and Birch focuses on distance between points for clustering which results in having lower scatter within the cluster compared to DBSCAN which works on connectivity which also happens to have lower inter-cluster distance.
+
 The Silhouette Coefficient index measures the coherence of clusters and has values between -1 and 1. A positive score signifies clusters are well-defined. KMeans clustering performs the best among all the algorithms. A negative value signifies the cluster assignment is incorrect. The bowler data has a negative score and also the lowest score among batsmen data for DBSCAN.
+
 The Calinski Harabasz index helps to understand clustering algorithms' performance. Higher values of this index determine that clusters have better separation and are well-defined. In general, CH index gives lower values for density-based clustering algorithms. To corroborate this, we see that this index gives a low score for DBSCAN and a higher score for all the other algorithms. On bowler data, KMeans clustering has the best performance. On batsmen data, Agglomerative and BIRCH clustering have comparative performances.
 
 
