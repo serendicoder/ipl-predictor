@@ -150,7 +150,7 @@ As described in the data collection section, we have more than 2 features for bo
 In for all stats, the plot for explained variance vs the number of principal components looks like this (n=5):
 
 | ![](./assets/PCA_Batsmen.png) | ![](./assets/PCA_Bowlers.png) | ![](./assets/PCA_AR.png) |
-|---|---|---|
+|------------------------------------|--------------------------------------|---------------------------------------|
 
 The first two components account for about 91%, 75% and 71% of the variance for Batsmen, Bowlers and All-Rounders respectively. It would be ideal to use the third component as well for nearly the entire variance, but we choose only the first 2 in data transformation for easier visualization of clusters. 
 
@@ -286,9 +286,9 @@ Davies Bouldin Index is a way to assess clustering performance. DB Index defines
 
 If we analyze the results -  KMeans, Agglomerative and Birch have almost the same DB Index while DBSCAN has significantly higher. This is due to the fact KMeans, Agglomerative and Birch focuses on distance between points for clustering which results in having lower scatter within the cluster compared to DBSCAN which works on connectivity which also happens to have lower inter-cluster distance.
 
-The Silhouette Coefficient index measures the coherence of clusters and has values between -1 and 1. A positive score signifies clusters are well-defined. KMeans clustering performs the best among all the algorithms. A negative value signifies the cluster assignment is incorrect. The bowler data has a negative score and also the lowest score among batsmen data for DBSCAN.
+The Silhouette Coefficient index measures the coherence of clusters and has values between -1 and 1. A positive score signifies clusters are well-defined. KMeans clustering performs the best among all the algorithms. A negative value signifies the cluster assignment is incorrect. Birch clustering is seen to have the best performance as per this score for batsmen and bowlers' data. For all-rounders' data, KMeans has the most well-separated clusters.
 
-The Calinski Harabasz index helps to understand clustering algorithms' performance. Higher values of this index determine that clusters have better separation and are well-defined. In general, CH index gives lower values for density-based clustering algorithms. To corroborate this, we see that this index gives a low score for DBSCAN and a higher score for all the other algorithms. On bowler data, KMeans clustering has the best performance. On batsmen data, Agglomerative and BIRCH clustering have comparative performances.
+The Calinski Harabasz index helps to understand clustering algorithms' performance. Higher values of this index determine that clusters have better separation and are well-defined. In general, CH index gives lower values for density-based clustering algorithms. To corroborate this, we see that this index gives a low score for DBSCAN and a higher score for all the other algorithms. On batsmen and all-rounders' data, KMeans clustering has the best performance. On bowlers' data, Birch clustering has the highest score.
 
 
 # 6. References
