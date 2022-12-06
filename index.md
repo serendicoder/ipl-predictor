@@ -297,11 +297,7 @@ For the unsupervised learning task we found the distribution of the contract cat
 #### Bowlers
 
 
-
-|  ![](./assets/BowlerClusteringDistKMeans.png)  |  ![](./assets/BowlerClusteringDistAgglomerative.png)  |  ![](./assets/BowlerClusteringDistBirch.png)  | 
-|------------------------------------------------|-------------------------------------------------------|-----------------------------------------------|
-
-
+<img src="./assets/BowlerClusteringDistKMeans.png" style="height: 250px; width:250px;"/> <img src="./assets/BowlerClusteringDistAgglomerative.png" style="height: 250px; width:250px;"/> <img src="./assets/BowlerClusteringDistBirch.png" style="height: 250px; width:250;"/>
 
 
 
