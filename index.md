@@ -290,13 +290,7 @@ The Silhouette Coefficient index measures the coherence of clusters and has valu
 
 The Calinski Harabasz index helps to understand clustering algorithms' performance. Higher values of this index determine that clusters have better separation and are well-defined. In general, CH index gives lower values for density-based clustering algorithms. To corroborate this, we see that this index gives a low score for DBSCAN and a higher score for all the other algorithms. On batsmen and all-rounders' data, KMeans clustering has the best performance. On bowlers' data, Birch clustering has the highest score.
 
-# 6. Conclusion
-
-For the unsupervised learning task we found the distribution of the contract categories of players using various clustering algorithms. 
-
-For bowlers and batsmen category the distribution of contracts is similar for KMeans and Agglomerative clustering, birch clustering shows slightly different results. For all rounders category, the distribution is similar in case of Agglomerative and Birch clustering algorithms, KMeans seems to be off. DB scan doesn’t work well on either of the categories.
-
-The distribution looks as follows.
+#### The distribution of contract categories looks as follows:
 
 #### Bowlers
 
@@ -319,6 +313,14 @@ The distribution looks as follows.
 |------------------------------------------------|-------------------------------------------------------|
 | ![](./assets/AllRoundClusteringDistDBScan.png) | ![](./assets/AllRoundClusteringDistBirch.png)         |
 
+
+
+
+# 6. Conclusion
+
+For the unsupervised learning task we found the distribution of the contract categories of players using various clustering algorithms. 
+
+For bowlers and batsmen category the distribution of contracts is similar for KMeans and Agglomerative clustering, birch clustering shows slightly different results. For all rounders category, the distribution is similar in case of Agglomerative and Birch clustering algorithms, KMeans seems to be off. DB scan doesn’t work well on either of the categories.
 
 
 # 7. References
