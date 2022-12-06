@@ -292,7 +292,11 @@ The Calinski Harabasz index helps to understand clustering algorithms' performan
 
 # 6. Conclusion
 
-For the unsupervised learning task we found the distribution of the contract categories of players using various clustering algorithms. The distribution looks as follows.
+For the unsupervised learning task we found the distribution of the contract categories of players using various clustering algorithms. 
+
+For bowlers and batsmen category the distribution of contracts is similar for KMeans and Agglomerative clustering, birch clustering shows slightly different results. For all rounders category, the distribution is similar in case of Agglomerative and Birch clustering algorithms, KMeans seems to be off. DB scan doesn’t work well on either of the categories.
+
+The distribution looks as follows.
 
 #### Bowlers
 
