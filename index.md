@@ -289,7 +289,7 @@ The Calinski Harabasz index helps to understand clustering algorithms' performan
 | Anam Ahmad  | • Additional data sourcing: player ratings <br> • Data cleaning, feature selection and corresponding report sections <br> • Preliminary classifier evaluation for further feature transformation |
 | Amola Singh | • Additional data sourcing: player ratings <br> • Data cleaning, team data preprocessing, and updating Github page <br> • Evaluate preliminary classifier using various metrics |
 | Rohith Sudheer| • Additional data sourcing: player ratings <br>  • Data cleaning and filling missing data. Generating playoff labels <br>  • Preliminary feature reduction |                                                                             
-| Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  Training different classifier models - coding and implementation |
+| Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  Training different classifier models - coding and implementation <br> • Training different clustering models- coding and implementation <br> • Clustering Visualization <br> • Unique Players Dataset |
 | Vidhi Talera |  • Additional data sourcing: player ratings, player grades <br> • Feature reduction using forward and backward feature selection <br>  • Evaluate preliminary classifiers on various metrics. Updating report sections and github page |
 
 # Video Presentation
