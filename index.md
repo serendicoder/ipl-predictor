@@ -218,10 +218,10 @@ For clustering, since we do not have the ground truth (labels), we cannot measur
 
 | Algorithm                     | Clusters | DB Index  | SC score | CH score  |
 |-------------------------------|----------|-----------|----------|-----------|
-| KMeans                        | 4        | 0.449464  | 0.787841 | 3128.7980 |
-| Agglomerative Clustering      | 5        | 0.457173  | 0.773726 | 2859.1770 |
-| DBSCAN                        | 7        | 1.036026  | 0.152591 | 38.5098   |
-| Birch                         | 5        | 0.457173  | 0.773726 | 2859.1770 |
+| KMeans                        | 5        | 0.630052  | 0.444733 | 156.1898  |
+| Agglomerative Clustering      | 5        | 0.584642  | 0.438450 | 131.0827  |
+| DBSCAN                        | 3        | 3.745686  | 0.330029 | 12.8973   |
+| Birch                         | 5        | 0.482919  | 0.486090 | 104.9976  |
 
 
 #### Evaluation of bowlers clustering 
@@ -233,10 +233,20 @@ For clustering, since we do not have the ground truth (labels), we cannot measur
 
 | Algorithm                     | Clusters | DB Index  | SC score       | CH score  |
 |-------------------------------|----------|-----------|----------------|-----------|
-| KMeans                        | 4        | 0.442359  |   0.698910     | 2290.5074 |
-| Agglomerative Clustering      | 5        | 0.482044  |   0.662284     | 2357.9518 |
-| DBSCAN                        | 6        | 0.994321  |  \- 0.16371    | 22.7747   |
-| Birch                         | 5        | 0.482044  |   0.662284     | 2357.9518 |
+| KMeans                        | 5        | 0.679671  |   0.554159     | 135.0275  |
+| Agglomerative Clustering      | 5        | 0.711315  |   0.526412     | 122.9902  |
+| DBSCAN                        | 8        | 1.488237  |   0.273958     | 17.7444   |
+| Birch                         | 5        | 0.687301  |   0.566591     | 137.0723  |
+
+#### Evaluation of all-rounders clustering
+
+| Algorithm                     | Clusters | DB Index  | SC score | CH score  |
+|-------------------------------|----------|-----------|----------|-----------|
+| KMeans                        | 4        | 0.624082  | 0.554087 | 92.01565  |
+| Agglomerative Clustering      | 5        | 0.618139  | 0.539921 | 85.4622   |
+| DBSCAN                        | 7        | 1.334816  | 0.212405 | 25.6839   |
+| Birch                         | 5        | 0.646589  | 0.514289 | 81.0841   |
+
 
 Davies Bouldin Index is a way to assess clustering performance. DB Index defines similarity as ratio of average dispersion of two clusters to the separation between their centroids. Two clusters having a very high similarity would have a very high dispersion and would be situated very closely. Such clusters ideally should have been merged. A good clustering would have the DB Index as low as possible. This implies a good clustering should have tight clusters with high distance between the centroids. Ideally the DB index should be close to 0.
 
