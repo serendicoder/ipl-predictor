@@ -212,8 +212,9 @@ For clustering, since we do not have the ground truth (labels), we cannot measur
 #### Visualization and Evaluation of batsmen clustering
 
 
-![](./assets/ClusteringVisualBatsmenKMeans.png) ![](./assets/ClusteringVisualBatsmenAgglomerative.png)
-![](./assets/ClusteringVisualBatsmenDBSCAN.png) ![](./assets/ClusteringVisualBatsmenBirch.png)
+| ![](./assets/ClusteringVisualBatsmenKMeans.png) | ![](./assets/ClusteringVisualBatsmenAgglomerative.png) |
+|-------------------------------------------------|--------------------------------------------------------|
+| ![](./assets/ClusteringVisualBatsmenDBSCAN.png) | ![](./assets/ClusteringVisualBatsmenBirch.png)         |
 
 
 | Algorithm                     | Clusters | DB Index  | SC score | CH score  |
@@ -227,8 +228,9 @@ For clustering, since we do not have the ground truth (labels), we cannot measur
 #### Visualization and Evaluation of bowlers clustering 
 
 
-![](./assets/ClusteringVisualBowlerKMeans.png) ![](./assets/ClusteringVisualBowlerAgglomerative.png)
-![](./assets/ClusteringVisualBowlerDBSCAN.png) ![](./assets/ClusteringVisualBowlerBirch.png)
+| ![](./assets/ClusteringVisualBowlerKMeans.png)  | ![](./assets/ClusteringVisualBowlerAgglomerative.png)  |
+|-------------------------------------------------|--------------------------------------------------------|
+| ![](./assets/ClusteringVisualBowlerDBSCAN.png)  | ![](./assets/ClusteringVisualBowlerBirch.png).         |
 
 
 | Algorithm                     | Clusters | DB Index  | SC score       | CH score  |
@@ -241,8 +243,9 @@ For clustering, since we do not have the ground truth (labels), we cannot measur
 #### Visualization and Evaluation of all-rounders clustering
 
 
-![](./assets/ClusteringVisualAllRounderKMeans.png) ![](./assets/ClusteringVisualAllRounderAgglomerative.png) 
-![](./assets/ClusteringVisualAllRounderDBSCAN.png) ![](./assets/ClusteringVisualAllRounderBirch.png)
+| ![](./assets/ClusteringVisualAllRounderKMeans.png) | ![](./assets/ClusteringVisualAllRounderAgglomerative.png) | 
+|----------------------------------------------------|-----------------------------------------------------------|
+| ![](./assets/ClusteringVisualAllRounderDBSCAN.png) | ![](./assets/ClusteringVisualAllRounderBirch.png)         |
 
 
 | Algorithm                     | Clusters | DB Index  | SC score | CH score  |
