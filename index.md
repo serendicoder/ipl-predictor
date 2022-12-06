@@ -149,7 +149,7 @@ As described in the data collection section, we have more than 2 features for bo
 
 In for all stats, the plot for explained variance vs the number of principal components looks like this (n=5):
 
-<img src="./assets/PCA_Batsmen.png" style="height: 250px; width:250px;"/> <img src="./assets/PCA_Bowlers.png" style="height: 250px; width:250px;"/> <img src="./assets/PCA_AR.png" style="height: 250px; width:250px;"/>
+<img src="./assets/PCA_Batsmen.png" style="height: 250px; width:325px;"/> <img src="./assets/PCA_Bowlers.png" style="height: 250px; width:325px;"/> <img src="./assets/PCA_AR.png" style="height: 250px; width:325px;"/>
 
 
 The first two components account for about 91%, 75% and 71% of the variance for Batsmen, Bowlers and All-Rounders respectively. It would be ideal to use the third component as well for nearly the entire variance, but we choose only the first 2 in data transformation for easier visualization of clusters. 
@@ -190,24 +190,28 @@ To improve performance, we looked into how individual models could be tuned to f
 | SVM          | Kernel changed from rbf (radial) to linear and C changed from 1 to 0.3 (narrower margin)   | 12                        |
 | DecisionTree | max_depth changed from default (inf) to 3                                                  | 3                         |
 
-Finally, the performance for all algorithms is tabulated below:
+Finally, the performance for all algorithms with metrics rounded to 3 decimal places is tabulated below:
 
-| Model              | Accuracy | Precision | Recall   | F1       |
-|--------------------|----------|-----------|----------|----------|
-| KNN                | 0.486891 | 0.483895  | 0.442748 | 0.458498 |
-| SVM                | 0.689139 | 0.619289  | 0.740458 | 0.700361 |
-| LDA                | 0.692884 | 0.622682  | 0.740458 | 0.702899 |
-| LogisticRegression | 0.692884 | 0.622682  | 0.740458 | 0.702899 |
-| DecisionTree       | 0.674157 | 0.604568  | 0.793893 | 0.705085 |
-| NaiveBayes         | 0.700375 | 0.63003   | 0.732824 | 0.705882 |
+| Model              | Accuracy | Precision | Recall | F1    | 10-fold CV |
+|--------------------|----------|-----------|--------|-------|------------|
+| KNN                | 0.539    | 0.512     | 0.511  | 0.521 | 0.502      |
+| SVM                | 0.689    | 0.619     | 0.740  | 0.700 | 0.682      |
+| NaiveBayes         | 0.693    | 0.623     | 0.733  | 0.701 | 0.681      |
+| DecisionTree       | 0.685    | 0.615     | 0.756  | 0.702 | 0.676      |
+| LDA                | 0.693    | 0.623     | 0.740  | 0.703 | 0.684      |
+| LogisticRegression | 0.693    | 0.623     | 0.740  | 0.703 | 0.684      |
 
-All algorithms except KNN have comparable performance. Taking SVM as reference, the kernel used for performance improvement is "linear". This means that the data is linearly separable, and this linear separability also explains why other algorithms like Decision Tree also perform similarly. However, this performance is not objectively good given the F1 score is below 0.8. We can draw a useful insight from Naive Bayes. The model assumes that the features are independent, which is not the case in our supervised learning dataset as seen in the data preprocessing steps. Even intuitively, there are attributes in our dataset which are correlated, for e.g. `Venue` and `City`. Intuitively we should not be considering ‘WonBy’, and ‘Margin’ as they are correlated too, e.g. it is more likely for `Margin` to have a higher numerical value when the value of `Margin` is "runs" instead of "wickets" since a team can only win by a maximum of 10 wickets whereas winning runs are unbounded. But dropping `WonBy` severely affects the performance of the models, making the accuracy less than 50% which is worse than random guessing. We thus choose to retain that feature.
 
-More complex models may be able to learn a better representation of the data.
+All algorithms except KNN have comparable performance. Taking SVM as reference, the kernel used for performance improvement is "linear". This means that the data is linearly separable, and this linear separability also explains why other algorithms like Decision Tree also perform similarly. However, this performance is not objectively good given the F1 score is below 0.8. We can draw a useful insight from Naive Bayes. The model assumes that the features are independent, which is not the case in our supervised learning dataset as seen in the data preprocessing steps. Even intuitively, there are attributes in our dataset which are correlated, for e.g. `Venue` and `City`. Intuitively we should not be considering ‘WonBy’, and ‘Margin’ as they are correlated too, e.g. it is more likely for `Margin` to have a higher numerical value when the value of `Margin` is "runs" instead of "wickets" since a team can only win by a maximum of 10 wickets whereas winning runs are unbounded. But dropping `WonBy` severely affects the performance of the models, making the accuracy less than 50% which is worse than random guessing. We thus choose to retain that feature. 
 
-We then retrain Naive Bayes to predict outcomes of all the group stage games for the 2022 season. The confusion matrix indicates only 8 matches out of 70 were predicted incorrectly: 
+To get an insight into Decision Tree's performance, we take a look at the tree generated: 
+<img src="./assets/DecisionTree_Updated.png" style="height: 600px; width:600px;"/>
 
-| ![](./assets/2022_prediction_confusionmatrix.png) | 
+Despite the catgeorical features being non-ordinal, we see a continuous split. For example, the condition `Venue <= 4.5` does not make sense. One way around it is to one-hot encode the features instead of converting them to categorical, but this not help performance. More advanced tree-based classifiers in the sklearn library could possibly account for this limitation. 
+
+We then retrain Logisitic Regression to predict outcomes of all the group stage games for the 2022 season. The confusion matrix indicates only 8 matches out of 70 were predicted incorrectly: 
+
+![](./assets/2022_prediction_confusionmatrix.png)
 
 We then count the number of wins for each team and rank them accordingly. These results are tabulated below: 
 
@@ -295,7 +299,7 @@ The Calinski Harabasz index helps to understand clustering algorithms' performan
 #### Bowlers
 
 
-<img src="./assets/BowlerClusteringDistKMeans.png" style="height: 250px; width:250px;"/> <img src="./assets/BowlerClusteringDistAgglomerative.png" style="height: 250px; width:250px;"/> <img src="./assets/BowlerClusteringDistBirch.png" style="height: 250px; width:250px;"/>
+<img src="./assets/BowlerClusteringDistKMeans.png" style="height: 250px; width:325px;"/> <img src="./assets/BowlerClusteringDistAgglomerative.png" style="height: 250px; width:325px;"/> <img src="./assets/BowlerClusteringDistBirch.png" style="height: 250px; width:325px;"/>
 
 
 
@@ -318,9 +322,11 @@ The Calinski Harabasz index helps to understand clustering algorithms' performan
 
 # 6. Conclusion
 
+To predict the playoffs for the 2022 season, we used supervised learning algorithms to train multiple classifiers. Except KNN, all models had comparable performance. Preliminary performance was inadequate (<50%) for all models following which we went back to process our data further, and also tuned model hyperparameters to improve performance. The maximum F1 score observed was ~0.7 and maximum 10-fold cross-validation score was 0.68 (Logistic Regression). Even though the absolute performance of the models was not impressive, they could predict the playoffs for the 2022 season accurately. Our learnings from this project are that more advanced data processing techniques can boost the model performance further. 
+
 For the unsupervised learning task we found the distribution of the contract categories of players using various clustering algorithms. 
 
-For bowlers and batsmen category the distribution of contracts is similar for KMeans and Agglomerative clustering, birch clustering shows slightly different results. For all rounders category, the distribution is similar in case of Agglomerative and Birch clustering algorithms, KMeans seems to be off. DB scan doesn’t work well on either of the categories.
+For bowlers and batsmen category the distribution of contracts is similar for KMeans and Agglomerative clustering, birch clustering shows slightly different results. For all rounders category, the distribution is similar in case of Agglomerative and Birch clustering algorithms, KMeans seems to be off. DB scan doesn’t work well on either of the categories: this is possibly because a single value of minPts (minimum samples) is not enough to capture the varying densities of the contracts. It is intuitive in the sense that there tend to be much fewer A+ contract players than B or C contract players. 
 
 
 # 7. References
