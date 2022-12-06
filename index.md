@@ -13,8 +13,8 @@ Barot et al \[3\] analyze 4 years of IPL data to create a model that can predict
 # 2. Problem Definition
 
 The goals of this project are two-fold:<br/>
-* Firstly, we propose to **predict the likelihood of teams qualifying for the IPL playoffs**. We plan to train a supervised learning model, with the most discriminative features extracted from the dataset, to predict chances of each team advancing to the IPL playoffs. 
-* Secondly, we propose to **group players in various contract categories based on their performance**. There are five possible player contract categories (Grade-A+, Grade-A, Grade-B, Grade-C, Non-Contracted), which directly influences the players bidding amount.  We propose to use an unsupervised clustering algorithm to tackle this problem.
+* Firstly, we predict which teams will qualify for the IPL playoffs by predicting the outcome of each group stage game and subsequently ranking the teams. The prediction is done by a supervised learning model, with the most discriminative features extracted from the dataset.
+* Secondly, we propose to group players in various contract categories based on their performance. There are five possible player contract categories (Grade-A+, Grade-A, Grade-B, Grade-C, Non-Contracted), which directly influences the players bidding amount.  We propose to use unsupervised clustering to tackle this problem.
 
 
 # 3. Data Collection
@@ -74,11 +74,12 @@ We only need a subset of the features for clustering on player performance. Here
 1. Get active players: Filter dataset to get all players who participated in the 3 most recent seasons. This is done by referencing the match ID from the `Matches` dataset corresponding to the first match in 2020 and using it as a cutoff. 
 2. Infer roles of players: The `Ball-by-ball` dataset has features `batter` and `bowler` which are used to infer roles of players 
 3. Performance Features: Generate aggregate values for each player from the dataset for the following features
-    1. Batsmen: [`matches_played`, `run_scored`, `catches_taken`, `strike_rate_bat`, `mom`]
+    1. Batsmen: [`matches_played`, `total_runs`, `total_balls`, `strike_rate_bat`, `mom`]
     2. Bowlers: [`matches_played`, `wickets_taken`, `catches_taken`, `strike_rate_bowl`, `economy_rate`, `mom`]
-    (Here `mom`means Man of the Match/Player of the Match)
+    (Here `mom`means Man of the Match/Player of the Match, and additional features which are combined to result in above features are also present)
+This results in 1 file each corresponding to batsmen stats and bowler stats.
 
-This results in 1 file each corresponding to batsmen stats and bowler stats. 
+The batting lineup of a team tends to include bowlers towards the end, so using only ball-by-ball data to infer who the batsmen are can lead to overlap, i.e. the bowlers can be counted as batsmen. Additionally, a significant number of players are allrounders, so they may bat and bowl both. To tackle this, we construct a simple table which has player name and their role as per [ICC Cricket data](https://www.icc-cricket.com/rankings/mens/player-rankings/t20i) which we refer to filter the stats created in step 3. We also thus create a new file for AllRounders, with both batsmen and bowler features listed in step 3. These account for matches played by the allrounder as a bowler and batsmen and the corresponding performance. 
 
 
 # 4. Methods
@@ -140,17 +141,18 @@ backward_elimination_results:  `{'MatchNumber', 'Margin', 'Team1', 'City', 'Winn
  
 Both the techniques resulted in similar features to be selected except two, which are `Venue` and `SuperOver`.
  
-After feature reduction, the included ones are: `{'Team2', 'MatchNumber','SuperOver', 'Venue', 'Team1', 'City', 'TossWinner', 'TossDecision', 'WonBy}`
+After feature reduction, the candidate features are: `{'Team2', 'MatchNumber','SuperOver', 'Venue', 'Team1', 'City', 'TossWinner', 'TossDecision', 'WonBy}`
 
 #### Player Contract Clustering: PCA
 
 As described in the data collection section, we have more than 2 features for both bowlers and batsmen performances. We performed PCA on the dataset to transform the features into a lower dimension (of 2 features) which would make visualization easier, and also maximise the variance for cleaner clustering.
 
-In case of both the bowler and the batsmen stats, the plot for explained variance vs the number of principal components looks like this (n=3):
+In for all stats, the plot for explained variance vs the number of principal components looks like this (n=5):
 
-![](./assets/PCA1.png)
+| ![](./assets/PCA1.png) | 
+|----------------------------------------------------|
 
-Almost all of the variance is captured by the first component. This indicates that the data could be highly structured and highly correlated. This makes sense since performance can often be collapsed into a single metric, and it is often a heuristic combination of the features we have used. We thus transform the features into the 2-D space described by the first 2 principal components. 
+The first two components account for about 90% of the variance. It would be ideal to use the third component as well for nearly the entire variance, but we choose only the first 2 in data transformation for easier visualization of clusters. 
 
 
 ### 4.3 Supervised Learning
@@ -169,7 +171,7 @@ Since the success of the classifiers cannot be mapped directly to the strategy o
 
 The clustering algorithms used are: KMeans, Agglomerative Clustering, DBSCAN, Birch and Affinity Propagation. 
 
-# 5. Results
+# 5. Results and Analysis
 
 ### 5.1 Supervised Learning Task
 We trained 6 different supervised models, decision tree, Naive Bayes, SVM, LDA, KNN, and Logistic Regression and predicted the labels for the test data.
@@ -199,11 +201,35 @@ Finally, the performance for all algorithms is tabulated below:
 | DecisionTree       | 0.674157 | 0.604568  | 0.793893 | 0.705085 |
 | NaiveBayes         | 0.700375 | 0.63003   | 0.732824 | 0.705882 |
 
-All algorithms except KNN have comparable performance. Taking SVM as reference, the kernel used for performance improvement is "linear". This means that the data is linearly separable, and this linear separability also explains why other algorithms like Decision Tree also perform similarly. However, this performance is not objectively good given the F1 score is below 0.8. We can draw a useful insight from Naive Bayes. The model assumes that the features are independent, which is not the case in our supervised learning dataset as seen in the data preprocessing steps. Even intuitively, there are attributes in our dataset which are correlated, for e.g. `Venue` and `City`. Intuitively we should not be considering ‘WonBy’, and ‘Margin’ as they are correlated too, e.g. it is more likely for `Margin` to have a higher numerical value when the value of `Margin` is "runs" instead of "wickets" since a team can only win by a maximum of 10 wickets whereas winning runs are unbounded. 
+All algorithms except KNN have comparable performance. Taking SVM as reference, the kernel used for performance improvement is "linear". This means that the data is linearly separable, and this linear separability also explains why other algorithms like Decision Tree also perform similarly. However, this performance is not objectively good given the F1 score is below 0.8. We can draw a useful insight from Naive Bayes. The model assumes that the features are independent, which is not the case in our supervised learning dataset as seen in the data preprocessing steps. Even intuitively, there are attributes in our dataset which are correlated, for e.g. `Venue` and `City`. Intuitively we should not be considering ‘WonBy’, and ‘Margin’ as they are correlated too, e.g. it is more likely for `Margin` to have a higher numerical value when the value of `Margin` is "runs" instead of "wickets" since a team can only win by a maximum of 10 wickets whereas winning runs are unbounded. But dropping `WonBy` severely affects the performance of the models, making the accuracy less than 50% which is worse than random guessing. We thus choose to retain that feature.
 
 More complex models may be able to learn a better representation of the data.
 
-Based on the match predictions by Naive Bayes, the teams that make it to the playoffs are: ## TODO
+We then retrain Naive Bayes to predict outcomes of all the group stage games for the 2022 season. The confusion matrix indicates only 8 matches out of 70 were predicted incorrectly: 
+
+| ![](./assets/PCA1.png) | 
+
+We then count the number of wins for each team and rank them accordingly. These results are tabulated below: 
+
+| Team                        | Matches Won |
+|-----------------------------|-------------|
+| Gujarat Titans              | 10          |
+| Lucknow Super Giants        | 9           |
+| Royal Challengers Bangalore | 8           |
+| Chennai Super Kings         | 7           |
+| Delhi Capitals              | 7           |
+| Rajasthan Royals            | 7           |
+| Kolkata Knight Riders       | 6           |
+| Punjab Kings                | 6           |
+| Sunrisers Hyderabad         | 6           |
+| Mumbai Indians              | 4           |
+
+Based on these results, the top 3 teams are Gujarat Titans, Lucknow Super Giants and Royal Challengers Bangalore. We do not do a tie-breaking analysis in this project which will possibly require more data. Therefore the 4th spot can be Chennai Super Kings, Delhi Capitals or Rajasthan Royals. 
+
+Since the 2022 season is already over, we can compare our results to the teams that in fact made it to the playoffs. These are Gujarat Titans, Lucknow Super Giants, Rajasthan Royals, Royal Challengers Bangalore. This means we were able to predict 3/4 teams correctly, and if we had a tiebreaking mechanism in place, even the 4th team prediction would match. 
+
+Source: https://www.iplt20.com/points-table/men/2022
+
 
 ### 5.2 Unsupervised Learning Task 
 
