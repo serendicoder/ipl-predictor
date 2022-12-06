@@ -292,8 +292,34 @@ The Silhouette Coefficient index measures the coherence of clusters and has valu
 
 The Calinski Harabasz index helps to understand clustering algorithms' performance. Higher values of this index determine that clusters have better separation and are well-defined. In general, CH index gives lower values for density-based clustering algorithms. To corroborate this, we see that this index gives a low score for DBSCAN and a higher score for all the other algorithms. On batsmen and all-rounders' data, KMeans clustering has the best performance. On bowlers' data, Birch clustering has the highest score.
 
+# 6. Conclusion
 
-# 6. References
+For the unsupervised learning task we found the distribution of the contract categories of players using various clustering algorithms. The distribution looks as follows.
+
+#### Bowlers
+
+
+| ![](./assets/BowlerClusteringDistKMeans.png)   | ![](./assets/BowlerClusteringDistAgglomerative.png) | ![](./assets/BowlerClusteringDistBirch.png) | 
+|------------------------------------------------|-----------------------------------------------------|---------------------------------------------|
+
+
+#### Batsmen
+
+
+| ![](./assets/BatsmanClusteringDistKMeans.png)  | ![](./assets/BatsmanClusteringDistAgglomerative.png)  |   
+|------------------------------------------------|-------------------------------------------------------|
+| ![](./assets/BatsmanClusteringDistDBScan.png)  | ![](./assets/BatsmanClusteringDistBirch.png)          |
+
+
+#### All rounders
+
+| ![](./assets/AllRoundClusteringDistKMeans.png) | ![](./assets/AllRoundClusteringDistAgglomerative.png) |   
+|------------------------------------------------|-------------------------------------------------------|
+| ![](./assets/AllRoundClusteringDistDBScan.png) | ![](./assets/AllRoundClusteringDistBirch.png)         |
+
+
+
+# 7. References
 
 1. Ma, Nigel. "NBA Playoff Prediction Using Several Machine Learning Methods." 2021 3rd International Conference on Machine Learning, Big Data and Business Intelligence (MLBDBI). IEEE, 2021.
 2. Yaseen, Aliaa Saad, Ali Fadhil Marhoon, and Sarmad Asaad Saleem. "Multimodal Machine Learning for Major League Baseball Playoff Prediction." Informatica 46.6 (2022).
