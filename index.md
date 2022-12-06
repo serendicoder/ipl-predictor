@@ -149,8 +149,10 @@ As described in the data collection section, we have more than 2 features for bo
 
 In for all stats, the plot for explained variance vs the number of principal components looks like this (n=5):
 
-| ![](./assets/PCA_Batsmen.png) | ![](./assets/PCA_Bowlers.png) | ![](./assets/PCA_AR.png) |
+
+| ![](./assets/PCA_Batsmen.png)      | ![](./assets/PCA_Bowlers.png)        | ![](./assets/PCA_AR.png)              |
 |------------------------------------|--------------------------------------|---------------------------------------|
+
 
 The first two components account for about 91%, 75% and 71% of the variance for Batsmen, Bowlers and All-Rounders respectively. It would be ideal to use the third component as well for nearly the entire variance, but we choose only the first 2 in data transformation for easier visualization of clusters. 
 
