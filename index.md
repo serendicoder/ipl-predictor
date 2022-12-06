@@ -149,10 +149,10 @@ As described in the data collection section, we have more than 2 features for bo
 
 In for all stats, the plot for explained variance vs the number of principal components looks like this (n=5):
 
-| ![](./assets/PCA1.png) | 
-|----------------------------------------------------|
+| ![](./assets/PCA_Batsmen.png) | ![](./assets/PCA_Bowlers.png) | ![](./assets/PCA_AR.png) |
+|---|---|---|
 
-The first two components account for about 90% of the variance. It would be ideal to use the third component as well for nearly the entire variance, but we choose only the first 2 in data transformation for easier visualization of clusters. 
+The first two components account for about 91%, 75% and 71% of the variance for Batsmen, Bowlers and All-Rounders respectively. It would be ideal to use the third component as well for nearly the entire variance, but we choose only the first 2 in data transformation for easier visualization of clusters. 
 
 
 ### 4.3 Supervised Learning
@@ -207,7 +207,7 @@ More complex models may be able to learn a better representation of the data.
 
 We then retrain Naive Bayes to predict outcomes of all the group stage games for the 2022 season. The confusion matrix indicates only 8 matches out of 70 were predicted incorrectly: 
 
-| ![](./assets/PCA1.png) | 
+| ![](./assets/2022_prediction_confusionmatrix.png) | 
 
 We then count the number of wins for each team and rank them accordingly. These results are tabulated below: 
 
@@ -226,9 +226,9 @@ We then count the number of wins for each team and rank them accordingly. These 
 
 Based on these results, the top 3 teams are Gujarat Titans, Lucknow Super Giants and Royal Challengers Bangalore. We do not do a tie-breaking analysis in this project which will possibly require more data. Therefore the 4th spot can be Chennai Super Kings, Delhi Capitals or Rajasthan Royals. 
 
-Since the 2022 season is already over, we can compare our results to the teams that in fact made it to the playoffs. These are Gujarat Titans, Lucknow Super Giants, Rajasthan Royals, Royal Challengers Bangalore. This means we were able to predict 3/4 teams correctly, and if we had a tiebreaking mechanism in place, even the 4th team prediction would match. 
+Since the 2022 season is already over, we can compare our results to the teams that in fact made it to the playoffs. These are Gujarat Titans, Lucknow Super Giants, Rajasthan Royals, Royal Challengers Bangalore (source: https://www.iplt20.com/points-table/men/2022)
 
-Source: https://www.iplt20.com/points-table/men/2022
+This means we were able to predict 3/4 teams correctly, and if we had a tiebreaking mechanism in place, even the 4th team prediction would match. 
 
 
 ### 5.2 Unsupervised Learning Task 
@@ -312,7 +312,7 @@ The Calinski Harabasz index helps to understand clustering algorithms' performan
 
 | Team Member | Overall Contribution                                                                                                                                                                                                 |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Anam Ahmad  | • Additional data sourcing: player ratings <br> • Data cleaning, feature selection and corresponding report sections <br> • Preliminary classifier evaluation for further feature transformation |
+| Anam Ahmad  | • Additional data sourcing: player ratings <br> • Data cleaning, feature selection and corresponding report sections <br> • Supervised classifier results and evaluation |
 | Amola Singh | • Additional data sourcing: player ratings <br> • Data cleaning, team data preprocessing, and updating Github page <br> • Evaluate preliminary classifier using various metrics |
 | Rohith Sudheer| • Additional data sourcing: player ratings <br>  • Data cleaning and filling missing data. Generating playoff labels <br>  • Preliminary feature reduction |                                                                             
 | Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  Training different classifier models - coding and implementation <br> • Training different clustering models- coding and implementation <br> • Clustering Visualization <br> • Unique Players Dataset |
