@@ -132,16 +132,16 @@ Based on this analysis, candidate features to be dropped are ‘WonBy’ and ‘
 ![](./assets/Picture5.png) ![](./assets/Picture6.png)
 
 
-![](./assets/Picture7.png)
+![](./assets/correlation_matrix_update.png)
 
 This matrix is not ideal, therefore we tried a different strategy by performing forward selection and backward elimination techniques using pvalues from OLS regression model.
 
-forward_selection_results:  `{'Team2', 'MatchNumber', 'Margin', 'Venue', 'Team1', 'City', 'WinningTeam', 'TossWinner', 'WonBy', 'TossDecision'}`
-backward_elimination_results:  `{'MatchNumber', 'Margin', 'Team1', 'City', 'WinningTeam', 'SuperOver', 'TossWinner', 'Team2', 'TossDecision'}`
+forward_selection_results:  `{'Team2', 'MatchNumber', 'Margin', 'Venue', 'Team1', 'City', 'TossWinner', 'WonBy', 'TossDecision'}`
+backward_elimination_results:  `{'MatchNumber', 'Margin', 'Team1', 'City', 'SuperOver', 'TossWinner', 'Team2', 'TossDecision'}`
  
 Both the techniques resulted in similar features to be selected except two, which are `Venue` and `SuperOver`.
  
-After feature reduction, the candidate features are: `{'Team2', 'MatchNumber','SuperOver', 'Venue', 'Team1', 'City', 'TossWinner', 'TossDecision', 'WonBy}`
+After feature reduction, the candidate features are: `{'Team2', 'MatchNumber', 'Team1', 'City', 'TossWinner', 'TossDecision', 'WonBy', 'Margin'}`
 
 #### Player Contract Clustering: PCA
 
