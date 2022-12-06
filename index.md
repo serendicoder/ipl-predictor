@@ -209,12 +209,12 @@ Based on the match predictions by Naive Bayes, the teams that make it to the pla
 
 For clustering, since we do not have the ground truth (labels), we cannot measure the efficiency of clustering. However, depending on the geometrical structure of clusters, we can define a few metrics to assess the clustering quality. We are using Davies-Bouldin index, Silhouette score/coefficient(SC), Calinski Harabasz(CH) Score to evaluate the performance of the different clustering algorithms.
 
-#### Evaluation of batsmen clustering
+#### Visualization and Evaluation of batsmen clustering
 
-![](./assets/ClusteringVisual.png)
-![](./assets/ClusteringVisualAgglomerative.png)
-![](./assets/ClusteringVisualDBSCAN.png)
-![](./assets/ClusteringVisualBirch.png)
+
+![](./assets/ClusteringVisualBatsmenKMeans.png) ![](./assets/ClusteringVisualBatsmenAgglomerative.png)
+![](./assets/ClusteringVisualBatsmenDBSCAN.png) ![](./assets/ClusteringVisualBatsmenBirch.png)
+
 
 | Algorithm                     | Clusters | DB Index  | SC score | CH score  |
 |-------------------------------|----------|-----------|----------|-----------|
@@ -224,12 +224,12 @@ For clustering, since we do not have the ground truth (labels), we cannot measur
 | Birch                         | 5        | 0.482919  | 0.486090 | 104.9976  |
 
 
-#### Evaluation of bowlers clustering 
+#### Visualization and Evaluation of bowlers clustering 
 
-![](./assets/ClusteringVisualKMeansBowl.png)
-![](./assets/ClusteringVisualAgglomerativeBowl.png)
-![](./assets/ClusteringVisualDBSCANBowl.png)
-![](./assets/ClusteringVisualBirchBowl.png)
+
+![](./assets/ClusteringVisualBowlerKMeans.png) ![](./assets/ClusteringVisualBowlerAgglomerative.png)
+![](./assets/ClusteringVisualBowlerDBSCAN.png) ![](./assets/ClusteringVisualBowlerBirch.png)
+
 
 | Algorithm                     | Clusters | DB Index  | SC score       | CH score  |
 |-------------------------------|----------|-----------|----------------|-----------|
@@ -238,13 +238,18 @@ For clustering, since we do not have the ground truth (labels), we cannot measur
 | DBSCAN                        | 8        | 1.488237  |   0.273958     | 17.7444   |
 | Birch                         | 5        | 0.687301  |   0.566591     | 137.0723  |
 
-#### Evaluation of all-rounders clustering
+#### Visualization and Evaluation of all-rounders clustering
+
+
+![](./assets/ClusteringVisualAllRounderKMeans.png) ![](./assets/ClusteringVisualAllRounderAgglomerative.png) 
+![](./assets/ClusteringVisualAllRounderDBSCAN.png) ![](./assets/ClusteringVisualAllRounderBirch.png)
+
 
 | Algorithm                     | Clusters | DB Index  | SC score | CH score  |
 |-------------------------------|----------|-----------|----------|-----------|
-| KMeans                        | 4        | 0.624082  | 0.554087 | 92.01565  |
+| KMeans                        | 5        | 0.624082  | 0.554087 | 92.01565  |
 | Agglomerative Clustering      | 5        | 0.618139  | 0.539921 | 85.4622   |
-| DBSCAN                        | 7        | 1.334816  | 0.212405 | 25.6839   |
+| DBSCAN                        | 3        | 1.334816  | 0.212405 | 25.6839   |
 | Birch                         | 5        | 0.646589  | 0.514289 | 81.0841   |
 
 
