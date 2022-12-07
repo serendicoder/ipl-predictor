@@ -354,7 +354,7 @@ For bowlers and batsmen category the distribution of contracts is similar for KM
 | Amola Singh | • Additional data sourcing: player ratings <br> • Code for data cleaning, team data preprocessing, and updating Github page <br> • Evaluate preliminary classifier using various metrics <br> • Evaluate unsupervised learning algorithms <br> • Video presentation |
 | Rohith Sudheer| • Additional data sourcing: player ratings <br>  • Data cleaning and filling missing data. Generating playoff labels <br>  • Preliminary feature reduction <br>  • Parsing dataset to calculate features for unsupervised learning <br>  • Separating unsupervised learning dataset based on roles | 
 | Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  Training different classifier models - coding and implementation <br> • Training different clustering models- coding and implementation <br> • Clustering Visualization <br> • Unique Players Dataset |
-| Vidhi Talera |  • Additional data sourcing: player ratings, player grades <br> • Feature reduction using forward and backward feature selection <br>  • Evaluate preliminary classifiers on various metrics. Updating report sections and github page |
+| Vidhi Talera |  • Additional data sourcing: player ratings, player grades <br> • Feature reduction using forward and backward feature selection <br>  • Adding evaluation metrics for classifiers. <br>  • Parsing dataset to calculate features for unsupervised learning <br>  • Evaluating unsupervised learning algorithms <br>  • Adding plots, updating sections on github page |
 
 # Video Presentation
 
