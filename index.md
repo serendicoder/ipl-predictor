@@ -204,6 +204,8 @@ Finally, the performance for all algorithms with metrics rounded to 3 decimal pl
 
 All algorithms except KNN have comparable performance. Taking SVM as reference, the kernel used for performance improvement is "linear". This means that the data is linearly separable, and this linear separability also explains why other algorithms like Decision Tree also perform similarly. However, this performance is not objectively good given the F1 score is below 0.8. We can draw a useful insight from Naive Bayes. The model assumes that the features are independent, which is not the case in our supervised learning dataset as seen in the data preprocessing steps. Even intuitively, there are attributes in our dataset which are correlated, for e.g. `Venue` and `City`. Intuitively we should not be considering ‘WonBy’, and ‘Margin’ as they are correlated too, e.g. it is more likely for `Margin` to have a higher numerical value when the value of `Margin` is "runs" instead of "wickets" since a team can only win by a maximum of 10 wickets whereas winning runs are unbounded. But dropping `WonBy` severely affects the performance of the models, making the accuracy less than 50% which is worse than random guessing. We thus choose to retain that feature. 
 
+The reason why KNN performed poorly could be due to our data being high-dimensional. We use feature selection techniques to reduce 18 features to 10, but that is still a high number. We experimented with using manhattan and the more generalized minkowski distance, but it did not make much difference. 
+
 To get an insight into Decision Tree's performance, we take a look at the tree generated: 
 <img src="./assets/DecisionTree_Updated.png" style="height: 600px; width:600px;"/>
 
@@ -350,14 +352,15 @@ For bowlers and batsmen category the distribution of contracts is similar for KM
 
 | Team Member | Overall Contribution                                                                                                                                                                                                 |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Anam Ahmad  | • Additional data sourcing: player ratings <br> • Data cleaning, feature selection and corresponding report sections <br> • Supervised classifier results and evaluation |
+| Anam Ahmad  | • Data sourcing <br> • Data cleaning, feature selection and corresponding report sections <br> • Supervised classifier results and evaluation <br> • Video presentation <br> • Conclusions |
 | Amola Singh | • Additional data sourcing: player ratings <br> • Code for data cleaning, team data preprocessing, and updating Github page <br> • Evaluate preliminary classifier using various metrics <br> • Evaluate unsupervised learning algorithms <br> • Video presentation |
 | Rohith Sudheer| • Additional data sourcing: player ratings <br>  • Data cleaning and filling missing data. Generating playoff labels <br>  • Preliminary feature reduction <br>  • Parsing dataset to calculate features for unsupervised learning <br>  • Separating unsupervised learning dataset based on roles | 
 | Bodhisatwa Chatterjee| • Additional data sourcing: player ratings <br> •  Training different classifier models - coding and implementation <br> • Training different clustering models- coding and implementation <br> • Clustering Visualization <br> • Unique Players Dataset |
-| Vidhi Talera |  • Additional data sourcing: player ratings, player grades <br> • Feature reduction using forward and backward feature selection <br>  • Adding evaluation metrics for classifiers. <br>  • Parsing dataset to calculate features for unsupervised learning <br>  • Evaluating unsupervised learning algorithms <br>  • Adding plots, updating sections on github page |
+| Vidhi Talera |  • Additional data sourcing: player ratings, player grades <br> • Feature reduction using forward and backward feature selection <br>  • Adding evaluation metrics for classifiers. <br>  • Parsing dataset to calculate features for unsupervised learning <br>  • Evaluating unsupervised learning algorithms <br>  • Adding plots, updating sections on github page <br> • Conclusions|
 
 # Video Presentation
 
 [Proposal Video](https://tinyurl.com/7641group2proposal)
-[Final Video] (todo)
+
+[Final Presentation Video](https://tinyurl.com/cs6750group2final)
 
